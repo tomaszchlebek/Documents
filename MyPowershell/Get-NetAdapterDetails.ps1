@@ -7,7 +7,7 @@ $Results = $Adapters | ForEach-Object {
     #get the current adapter
     $Adapter = $PSItem
     #find the associated profiles
-    $AdapterProfiles = $Profiles | where {$Adapter.ifIndex -eq $_.InterfaceIndex}
+    $AdapterProfiles = $Profiles | Where-Object {$Adapter.ifIndex -eq $_.InterfaceIndex}
 
     #output the merged results by looping on the profiles
     $AdapterProfiles | 

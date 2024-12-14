@@ -6,8 +6,8 @@ $Ping = Test-Connection -ComputerName $PC -Quiet -Count 3
 
 If ($Ping) {
             Write-Host "Computer $PC online" -ForegroundColor Green
-            Get-ComputerInfo|Select CsDNSHostname,CsManufacturer,CsModel,OSVersion,WindowsVersion
-            Get-NetIPConfiguration|Select IPv4Address
+            Get-ComputerInfo|Select-Object CsDNSHostname,CsManufacturer,CsModel,OSVersion,WindowsVersion
+            Get-NetIPConfiguration|Select-Object IPv4Address
 
 }
 Else {
