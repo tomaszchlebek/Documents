@@ -1,0 +1,1 @@
+Get-NetAdapter -physical| Where-Object status -eq 'up'
