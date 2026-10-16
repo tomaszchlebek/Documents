@@ -1,0 +1,16 @@
+Get-ADDomain | Select InfrastructureMaster, PDCEmulator, RIDMaster
+Get-ADForest | Select DomainNamingMaster, SchemaMaster
+
+Move-ADDirectoryServerOperationMasterRole -Identity "TargetDC" -OperationMasterRole PDCEmulator
+Move-ADDirectoryServerOperationMasterRole -Identity "TargetDC" -OperationMasterRole RIDMaster
+Move-ADDirectoryServerOperationMasterRole -Identity "TargetDC" -OperationMasterRole InfrastructureMaster
+Move-ADDirectoryServerOperationMasterRole -Identity "TargetDC" -OperationMasterRole DomainNamingMaster
+Move-ADDirectoryServerOperationMasterRole -Identity "TargetDC" -OperationMasterRole SchemaMaster
+
+Get-ADDomain | Select InfrastructureMaster, PDCEmulator, RIDMaster
+Get-ADForest | Select DomainNamingMaster, SchemaMaster
+
+
+Or
+
+Move-ADDirectoryServerOperationMasterRole -Identity "TargetDC" -OperationMasterRole 0,1,2,3,4
